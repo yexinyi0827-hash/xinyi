@@ -111,7 +111,7 @@ img {
   background:
     linear-gradient(90deg, rgba(12, 17, 27, 0.96) 0%, rgba(12, 17, 27, 0.86) 46%, rgba(12, 17, 27, 0.2) 100%),
     linear-gradient(180deg, rgba(12, 17, 27, 0.15) 0%, rgba(12, 17, 27, 0.9) 100%),
-    url("./assets/portfolio/graphic-main-kv.jpg") center / cover no-repeat;
+    url("./assets/portfolio/14-graphic.jpg") center / cover no-repeat;
 }
 
 .eyebrow {
@@ -464,7 +464,7 @@ h3 {
     min-height: 0;
     background:
       linear-gradient(180deg, rgba(12, 17, 27, 0.94) 0%, rgba(12, 17, 27, 0.82) 58%, rgba(12, 17, 27, 0.96) 100%),
-      url("./assets/portfolio/graphic-main-kv.jpg") center / cover no-repeat;
+      url("./assets/portfolio/14-graphic.jpg") center / cover no-repeat;
   }
 
   .skill-grid {
