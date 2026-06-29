@@ -15,6 +15,7 @@ CATEGORY_LABELS = {
 }
 
 EXTS = {".png", ".jpg", ".jpeg", ".webp", ".bmp"}
+CATEGORY_ORDER = {"ui": 0, "graphic": 1, "video": 2}
 
 
 def js_string(value):
@@ -26,6 +27,33 @@ def title_from_path(path):
     for suffix in ["_\u753b\u677f 1", " \u526f\u672c 3", " \u526f\u672c 2"]:
         stem = stem.replace(suffix, "")
     return stem
+
+
+def ui_order(path):
+    rel = path.relative_to(SOURCE)
+    name = path.name
+    if rel.parts[0] != "UI\u8bbe\u8ba1":
+        return (99, str(rel))
+    if "\u5b98\u7f51" in rel.parts and name.startswith("\u5b98\u7f51-"):
+        return (0, str(rel))
+    if "\u5b98\u7f51" in rel.parts:
+        return (1, str(rel))
+    if "\u770b\u677f" in rel.parts:
+        return (3, str(rel))
+    return (2, str(rel))
+
+
+def subtype_for_path(path, category_label):
+    rel = path.relative_to(SOURCE)
+    if rel.parts[0] == "UI\u8bbe\u8ba1":
+        if "\u5b98\u7f51" in rel.parts and path.name.startswith("\u5b98\u7f51-"):
+            return "\u5b98\u7f51Banner"
+        if "\u5b98\u7f51" in rel.parts:
+            return "\u5b98\u7f51\u9875\u9762"
+        if "\u770b\u677f" in rel.parts:
+            return "\u770b\u677f"
+        return "\u4ea7\u54c1\u9875\u9762"
+    return rel.parts[1] if len(rel.parts) > 2 else rel.parts[-2] if len(rel.parts) > 1 else category_label
 
 
 def asset_name(index, category, path):
@@ -48,7 +76,13 @@ def main():
         old.unlink()
 
     files = [p for p in SOURCE.rglob("*") if p.is_file() and p.suffix.lower() in EXTS]
-    files.sort(key=lambda p: str(p.relative_to(SOURCE)))
+    files.sort(
+        key=lambda p: (
+            CATEGORY_ORDER[CATEGORY_LABELS[p.relative_to(SOURCE).parts[0]][0]],
+            ui_order(p),
+            str(p.relative_to(SOURCE)),
+        )
+    )
 
     items = []
     counts = {"ui": 0, "graphic": 0, "video": 0}
@@ -64,7 +98,7 @@ def main():
                 "title": title_from_path(path),
                 "category": category,
                 "categoryLabel": label,
-                "subtype": rel.parts[1] if len(rel.parts) > 2 else rel.parts[-2] if len(rel.parts) > 1 else label,
+                "subtype": subtype_for_path(path, label),
                 "src": f"./assets/portfolio/{name}",
                 "original": str(rel).replace("\\", "/"),
             }
