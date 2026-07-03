@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>半年度工作总结</title>
+  <style>
+    :root {
+      --bg: #050807;
+      --paper: rgba(12, 20, 16, 0.92);
+      --paper-strong: #0f1b15;
+      --ink: #f2fff7;
+      --muted: #93aa9c;
+      --line: rgba(85, 255, 146, 0.22);
+      --primary: #39ff88;
+      --primary-soft: rgba(57, 255, 136, 0.14);
+      --green: #39ff88;
+      --orange: #ffd166;
+      --red: #ff5f7a;
+      --radius: 8px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.48);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(57, 255, 136, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 255, 136, 0.035) 1px, transparent 1px),
+        linear-gradient(135deg, #050807 0%, #08140d 48%, #020403 100%);
+      background-size: 36px 36px, 36px 36px, auto;
+      background-attachment: fixed;
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 32px auto 56px;
+    }
+
+    header {
+      position: relative;
+      min-height: 0;
+      aspect-ratio: 2 / 1;
+      display: block;
+      overflow: hidden;
+      background: url("images/banner-summary.png") center / cover no-repeat;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-content,
+    .hero-visual {
+      display: none !important;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 650px;
+      font-size: 46px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-shadow: 0 0 24px rgba(57, 255, 136, 0.28);
+    }
+
+    .hero-visual {
+      min-height: 240px;
+      display: grid;
+      align-items: center;
+      justify-items: end;
+    }
+
+    .summary-illustration {
+      width: min(100%, 360px);
+      height: 248px;
+      position: relative;
+    }
+
+    .illus-panel {
+      position: absolute;
+      inset: 18px 0 0 34px;
+      border: 1px solid rgba(57, 255, 136, 0.22);
+      border-radius: var(--radius);
+      background: rgba(6, 16, 11, 0.86);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.28);
+      padding: 18px;
+    }
+
+    .illus-panel::before {
+      content: "";
+      display: block;
+      width: 88px;
+      height: 8px;
+      border-radius: 999px;
+      background: #39ff88;
+      box-shadow: 104px 0 0 #4cc9f0, 178px 0 0 #ffd166;
+      opacity: 0.92;
+    }
+
+    .illus-chart {
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      height: 92px;
+      margin-top: 24px;
+      padding: 0 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .illus-chart i {
+      width: 34px;
+      border-radius: 6px 6px 0 0;
+      background: #39ff88;
+      box-shadow: 0 0 18px rgba(57, 255, 136, 0.24);
+    }
+
+    .illus-chart i:nth-child(1) {
+      height: 38px;
+      background: #4cc9f0;
+    }
+
+    .illus-chart i:nth-child(2) {
+      height: 68px;
+      background: #39ff88;
+    }
+
+    .illus-chart i:nth-child(3) {
+      height: 52px;
+      background: #ffd166;
+    }
+
+    .illus-chart i:nth-child(4) {
+      height: 78px;
+      background: #ff7a90;
+    }
+
+    .illus-card {
+      position: absolute;
+      left: 0;
+      top: 60px;
+      width: 132px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: #14241b;
+      border: 1px solid rgba(57, 255, 136, 0.2);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.26);
+    }
+
+    .illus-card strong {
+      display: block;
+      color: #39ff88;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .illus-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .illus-list {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 166px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: #132018;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .illus-list p {
+      margin: 0 0 9px;
+      color: #f2fff7;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .illus-list i {
+      display: block;
+      height: 7px;
+      margin-top: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .illus-list i:nth-child(2) {
+      background: #39ff88;
+      width: 82%;
+    }
+
+    .illus-list i:nth-child(3) {
+      background: #4cc9f0;
+      width: 62%;
+    }
+
+    .illus-list i:nth-child(4) {
+      background: #ffd166;
+      width: 72%;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-item,
+    .metric,
+    .card,
+    .timeline-item,
+    .plan-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    .meta-item {
+      padding: 14px 16px;
+      background: rgba(4, 12, 8, 0.5);
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .value {
+      display: block;
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(57, 255, 136, 0.08);
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(57, 255, 136, 0.04), 0 0 18px rgba(57, 255, 136, 0.08);
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: #041007;
+      border-color: var(--primary);
+    }
+
+    section {
+      margin-top: 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .tag {
+      flex: 0 0 auto;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid rgba(57, 255, 136, 0.24);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .metric {
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(57, 255, 136, 0.12), rgba(57, 255, 136, 0.02)),
+        rgba(5, 14, 9, 0.9);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--primary);
+      text-shadow: 0 0 18px rgba(57, 255, 136, 0.28);
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .rate-rings {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: -4px 0 24px;
+    }
+
+    .rate-card {
+      display: grid;
+      grid-template-columns: 116px 1fr;
+      align-items: center;
+      gap: 16px;
+      min-height: 148px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035)),
+        rgba(5, 14, 9, 0.58);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(16px);
+    }
+
+    .rate-ring {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: conic-gradient(var(--ring-color) var(--percent), rgba(255, 255, 255, 0.2) 0);
+    }
+
+    .rate-ring::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border-radius: 50%;
+      background: #07100b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .rate-ring strong {
+      position: relative;
+      z-index: 1;
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .rate-copy span {
+      display: block;
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .rate-copy p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      background: rgba(8, 17, 12, 0.82);
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      color: var(--primary);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(5, 12, 8, 0.9);
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: rgba(57, 255, 136, 0.14);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    td {
+      color: var(--ink);
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(57, 255, 136, 0.035);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status.green {
+      background: rgba(57, 255, 136, 0.14);
+      color: var(--green);
+    }
+
+    .status.orange {
+      background: rgba(255, 209, 102, 0.16);
+      color: var(--orange);
+    }
+
+    .status.red {
+      background: rgba(255, 95, 122, 0.16);
+      color: var(--red);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .time {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .plan-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .plan-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .number {
+      width: 32px;
+      height: 32px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #041007;
+      font-weight: 800;
+      box-shadow: 0 0 18px rgba(57, 255, 136, 0.3);
+    }
+
+    .summary-box {
+      margin-top: 16px;
+      padding: 18px;
+      border-left: 4px solid var(--primary);
+      background: rgba(57, 255, 136, 0.08);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .gallery-guide {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      margin: 24px 0 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(57, 255, 136, 0.06);
+    }
+
+    .gallery-guide p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .file-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .gallery-carousel {
+      position: relative;
+      margin-top: 16px;
+      padding: 0 52px;
+    }
+
+    .carousel-window {
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 16px;
+      transition: transform 0.55s ease;
+      will-change: transform;
+    }
+
+    .work-card {
+      flex: 0 0 calc((100% - 32px) / 3);
+      overflow: hidden;
+      background: rgba(7, 16, 11, 0.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.34);
+    }
+
+    .work-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #07100b;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .video-carousel .work-media {
+      aspect-ratio: 3 / 4;
+    }
+
+    .work-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .image-placeholder {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      background: repeating-linear-gradient(
+        135deg,
+        #07100b,
+        #07100b 12px,
+        #0d1a12 12px,
+        #0d1a12 24px
+      );
+    }
+
+    .work-body {
+      padding: 16px;
+    }
+
+    .work-body h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .work-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .work-type {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(57, 255, 136, 0.88);
+      color: #041007;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .play-mark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(57, 255, 136, 0.88);
+      color: #041007;
+      font-size: 24px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      box-shadow: 0 0 28px rgba(57, 255, 136, 0.35);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 42%;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(57, 255, 136, 0.12);
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      box-shadow: 0 0 24px rgba(57, 255, 136, 0.16);
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #041007;
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(147, 170, 156, 0.45);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      width: 22px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+        margin-top: 16px;
+      }
+
+      header {
+        aspect-ratio: 2 / 1;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .summary-illustration {
+        width: 100%;
+        max-width: 360px;
+        justify-self: center;
+      }
+
+      section {
+        padding: 22px;
+      }
+
+      .meta,
+      .metrics,
+      .rate-rings,
+      .grid-2,
+      .grid-3,
+      .gallery-guide {
+        grid-template-columns: 1fr;
+      }
+
+      .rate-card {
+        grid-template-columns: 96px 1fr;
+      }
+
+      .rate-ring {
+        width: 92px;
+        height: 92px;
+      }
+
+      .rate-ring strong {
+        font-size: 20px;
+      }
+
+      .gallery-carousel {
+        padding: 0 42px;
+      }
+
+      .work-card {
+        flex-basis: 100%;
+      }
+
+      .section-head,
+      .timeline-item,
+      .plan-item {
+        display: block;
+      }
+
+      .tag {
+        display: inline-flex;
+        margin-top: 12px;
+      }
+
+      .number {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="hero-content">
+        <p class="eyebrow">2026 年上半年工作复盘</p>
+        <h1>市场上半年工作总结和下半年工作计划</h1>
+        <div class="meta">
+          <div class="meta-item">
+            <span class="label">汇报人</span>
+            <span class="value">叶馨怡</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">所属部门</span>
+            <span class="value">营销中心</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">汇报周期</span>
+            <span class="value">2026.01 - 2026.06</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">汇报日期</span>
+            <span class="value">2026.7.3</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="summary-illustration">
+          <div class="illus-panel">
+            <div class="illus-chart">
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+          </div>
+          <div class="illus-card">
+            <strong>H1</strong>
+            <span>市场复盘 / 线索增长 / 内容推广</span>
+          </div>
+          <div class="illus-list">
+            <p>WORK SUMMARY</p>
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav aria-label="页面导航">
+      <a href="#opportunities">商机与线索</a>
+      <a href="#work-summary">上半年工作总结</a>
+      <a href="#design-gallery">设计成果展示</a>
+      <a href="#next-plan">下半年工作计划</a>
+    </nav>
+
+    <section id="opportunities">
+      <div class="section-head">
+        <div>
+          <h2>一、市场推广商机与线索</h2>
+          <p class="section-note">用于展示上半年通过市场推广动作获得的线索数量、质量、来源、转化进展及重点客户机会。</p>
+        </div>
+        <span class="tag">市场推广成果</span>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <strong>371</strong>
+          <span>新增线索数量</span>
+        </div>
+        <div class="metric">
+          <strong>61</strong>
+          <span>有效商机数量</span>
+        </div>
+        <div class="metric">
+          <strong>439.2 万</strong>
+          <span>商机金额</span>
+        </div>
+        <div class="metric">
+          <strong>26.29 万</strong>
+          <span>新签金额</span>
+        </div>
+      </div>
+
+      <div class="rate-rings" aria-label="目标达成率">
+        <div class="rate-card">
+          <div class="rate-ring" style="--percent: 37.1%; --ring-color: #39ff88;">
+            <strong>37.1%</strong>
+          </div>
+          <div class="rate-copy">
+            <span>线索达成率</span>
+            <p>反映上半年线索获取目标完成情况，是后续优化获客渠道和内容投放的重要依据。</p>
+          </div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-ring" style="--percent: 25.8%; --ring-color: #4cc9f0;">
+            <strong>25.8%</strong>
+          </div>
+          <div class="rate-copy">
+            <span>商机金额达成率</span>
+            <p>用于观察商机金额目标完成进度，后续需继续提升高质量线索和重点商机培育效率。</p>
+          </div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-ring" style="--percent: 14.1%; --ring-color: #ffd166;">
+            <strong>14.1%</strong>
+          </div>
+          <div class="rate-copy">
+            <span>新签金额达成率</span>
+            <p>体现线索到签约的最终转化结果，后续需加强市场内容与销售成交资料的承接。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>线索来源分布</h3>
+          <ul>
+            <li>线上推广：官网、公众号、短视频平台、社群等。</li>
+            <li>线下活动：伙伴大会、协会资源、客户拜访等。</li>
+            <li>内容获客：白皮书、案例文章、产品资料下载、短视频、百度知道、知乎等。</li>
+            <li>合作渠道：合作推荐、伙伴营销、老客户转介绍等。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>线索质量分析</h3>
+          <ul>
+            <li>高意向线索：填写数量、客户类型、主要需求。</li>
+            <li>重点行业线索：填写行业分布及代表客户。</li>
+            <li>跟进状态：已沟通、方案中、报价中、待转化。</li>
+            <li>待优化问题：线索信息完整度、筛选标准、跟进效率。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <strong>本部分建议结论：</strong>
+        上半年市场推广累计新增线索 371 条，形成有效商机 61 个，商机金额 439.2 万元，新签金额 26.29 万元。整体已形成较稳定的线索获取与商机培育基础，后续需要进一步提升高质量线索占比，并加强市场与销售之间的转化闭环。
+      </div>
+
+      <h3 style="margin-top: 24px;">直销-重点商机列表</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>商机名称</th>
+            <th>商机(万)</th>
+            <th>产品(万)</th>
+            <th>销售</th>
+            <th>备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>深圳腾讯音乐</td>
+            <td>25</td>
+            <td>5</td>
+            <td>王泽琨</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>广州煌上光产业园</td>
+            <td>6</td>
+            <td>2.2</td>
+            <td>巫伟</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>珠海格力置业</td>
+            <td>90</td>
+            <td>30</td>
+            <td>巫伟</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>深圳市深长城物业</td>
+            <td>3.2</td>
+            <td>1.2</td>
+            <td>王泽琨</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>恒基物业</td>
+            <td>28</td>
+            <td>8</td>
+            <td>王泽琨</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>中铁建工坦桑尼亚</td>
+            <td>18.9</td>
+            <td>3.5</td>
+            <td>王泽琨</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>深圳正佳物业</td>
+            <td>7.6</td>
+            <td>1.6</td>
+            <td>巫伟</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>东莞云商谷商业</td>
+            <td>6</td>
+            <td>2</td>
+            <td>巫伟</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>台北双星股份有限公司</td>
+            <td>50</td>
+            <td>10</td>
+            <td>巫伟</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>广州桑瑞产业园</td>
+            <td>15</td>
+            <td>5</td>
+            <td>王泽琨</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>广东海大集团股份有限公司</td>
+            <td>20</td>
+            <td>5</td>
+            <td>王泽琨</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>珠海横琴城市服务运营公司</td>
+            <td>30</td>
+            <td>10</td>
+            <td>巫伟</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="work-summary">
+      <div class="section-head">
+        <div>
+          <h2>二、上半年工作内容与总结</h2>
+          <p class="section-note">围绕产品推广、内容制作推广、标准化内容输出三条主线，梳理具体动作、阶段成果、经验问题和改进方向。</p>
+        </div>
+        <span class="tag">复盘与沉淀</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. 产品的推广和宣传</h3>
+          <ul>
+            <li>梳理产品核心卖点、应用场景与客户价值表达。</li>
+            <li>配合产品节点完成宣传物料和渠道发布。</li>
+            <li>沉淀客户反馈，为后续产品传播和销售支持提供依据。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>2. 内容制作上的推广和宣传</h3>
+          <ul>
+            <li>完成长图海报、视频、案例、活动资料等内容策划与制作。</li>
+            <li>结合公众号、官网、短视频平台、社群等渠道进行分发。</li>
+            <li>提升内容对客户痛点、产品能力和成功案例的表达效率。</li>
+            <li>跟踪内容曝光、互动、咨询和转化数据。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3. 标准化的内容输出</h3>
+          <ul>
+            <li>建立产品介绍、案例包装、宣传海报、活动复盘等模板。</li>
+            <li>统一视觉风格、表达口径、资料结构和交付规范。</li>
+            <li>提高跨部门协作效率，减少重复沟通和临时性制作成本。</li>
+            <li>形成可复用的内容资产库，支持后续快速调用。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="design-gallery" style="margin-top: 24px;">平面设计作品</h3>
+      <div class="gallery-carousel" data-carousel>
+        <button class="carousel-btn prev" type="button" data-carousel-prev aria-label="上一张">‹</button>
+        <div class="carousel-window">
+          <div class="gallery-track" data-carousel-track>
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">平面设计</span>
+                <img src="images/flat-design-01.png" alt="2026经营启动会设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-01.png</div>
+              </div>
+              <div class="work-body">
+                <h4>2026经营启动会</h4>
+                <p>用于展示会议主视觉与活动传播物料。可补充：视觉主题、现场应用、组织支持价值。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">平面设计</span>
+                <img src="images/flat-design-02.png" alt="重点伙伴闭门会议设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-02.png</div>
+              </div>
+              <div class="work-body">
+                <h4>重点伙伴闭门会议</h4>
+                <p>用于展示重点伙伴活动视觉。可补充：会议调性、嘉宾触达、活动包装效果。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">平面设计</span>
+                <img src="images/flat-design-03.png" alt="客服升级设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-03.png</div>
+              </div>
+              <div class="work-body">
+                <h4>客服升级</h4>
+                <p>用于展示功能升级与服务说明类宣传视觉。可补充：信息层级、用户理解效率、传播渠道。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">平面设计</span>
+                <img src="images/flat-design-04.png" alt="缴费活动网页设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-04.png</div>
+              </div>
+              <div class="work-body">
+                <h4>缴费活动网页</h4>
+                <p>用于展示活动页面与线上转化视觉。可补充：活动目标、页面结构、引导转化设计。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">官网视觉</span>
+                <img src="images/flat-design-05.png" alt="官网AI产品设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-05.png</div>
+              </div>
+              <div class="work-body">
+                <h4>官网-AI 产品</h4>
+                <p>用于展示官网产品页面视觉。可补充：产品定位、页面信息架构、品牌一致性。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">官网视觉</span>
+                <img src="images/flat-design-06.png" alt="官网智慧国资设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-06.png</div>
+              </div>
+              <div class="work-body">
+                <h4>官网-智慧国资</h4>
+                <p>用于展示行业解决方案页面视觉。可补充：行业场景、方案表达、客户理解效率。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">官网视觉</span>
+                <img src="images/flat-design-07.png" alt="官网智慧物业设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-07.png</div>
+              </div>
+              <div class="work-body">
+                <h4>官网-智慧物业</h4>
+                <p>用于展示物业行业官网页面视觉。可补充：产品场景、内容层级、销售支持价值。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">官网视觉</span>
+                <img src="images/flat-design-08.png" alt="官网智慧园区设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-08.png</div>
+              </div>
+              <div class="work-body">
+                <h4>官网-智慧园区</h4>
+                <p>用于展示园区行业官网页面视觉。可补充：行业表达、页面转化入口、品牌统一性。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">产品视觉</span>
+                <img src="images/flat-design-09.png" alt="AI缴费云登录页设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-09.png</div>
+              </div>
+              <div class="work-body">
+                <h4>AI缴费云登录页</h4>
+                <p>用于展示产品登录页与品牌入口视觉。可补充：视觉升级、用户入口、产品识别度。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">产品视觉</span>
+                <img src="images/flat-design-10.png" alt="AI收费POS设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-10.png</div>
+              </div>
+              <div class="work-body">
+                <h4>AI收费POS</h4>
+                <p>用于展示产品推广视觉。可补充：核心卖点、应用场景、销售物料支持。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">内容视觉</span>
+                <img src="images/flat-design-11.png" alt="灵析智报设计作品" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/flat-design-11.png</div>
+              </div>
+              <div class="work-body">
+                <h4>灵析智报</h4>
+                <p>用于展示栏目化内容视觉。可补充：栏目包装、内容识别度、系列化输出能力。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-btn next" type="button" data-carousel-next aria-label="下一张">›</button>
+        <div class="carousel-dots" data-carousel-dots aria-label="轮播分页"></div>
+      </div>
+
+      <h3 style="margin-top: 28px;">视频作品封面</h3>
+      <div class="gallery-carousel video-carousel" data-carousel>
+        <button class="carousel-btn prev" type="button" data-carousel-prev aria-label="上一张">‹</button>
+        <div class="carousel-window">
+          <div class="gallery-track" data-carousel-track>
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-01.png" alt="4步实现国企穿透式监管视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-01.png</div>
+              </div>
+              <div class="work-body">
+                <h4>4步实现国企穿透式监管</h4>
+                <p>用于展示国企监管主题视频封面。可补充：选题目标、标题包装、传播场景。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-02.png" alt="国企穿透式监管到底穿什么视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-02.png</div>
+              </div>
+              <div class="work-body">
+                <h4>国企穿透式监管到底穿什么</h4>
+                <p>用于展示政策解读与知识传播类视频封面。可补充：内容亮点、视觉节奏、用户吸引点。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-03.png" alt="灵析智报产品发布视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-03.png</div>
+              </div>
+              <div class="work-body">
+                <h4>灵析智报产品发布</h4>
+                <p>用于展示产品发布类视频封面。可补充：产品卖点、发布节奏、品牌表达。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-04.png" alt="灵析智报01视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-04.png</div>
+              </div>
+              <div class="work-body">
+                <h4>灵析智报 01</h4>
+                <p>用于展示栏目化内容视频封面。可补充：栏目定位、视觉统一性、内容传播价值。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-05.png" alt="灵析智报02视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-05.png</div>
+              </div>
+              <div class="work-body">
+                <h4>灵析智报 02</h4>
+                <p>用于展示系列化内容视频封面。可补充：系列延展、标题层级、平台适配。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-06.png" alt="AI缴费云视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-06.png</div>
+              </div>
+              <div class="work-body">
+                <h4>AI缴费云视频封面</h4>
+                <p>用于展示产品功能与场景化传播视频封面。可补充：核心卖点、视觉包装、转化入口。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">视频封面</span>
+                <span class="play-mark">▶</span>
+                <img src="images/video-cover-07.png" alt="AI收费POS视频封面" loading="lazy" onerror="this.style.display='none'; this.previousElementSibling.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/video-cover-07.png</div>
+              </div>
+              <div class="work-body">
+                <h4>AI收费POS视频封面</h4>
+                <p>用于展示产品宣传与销售支持视频封面。可补充：产品场景、标题表达、推广渠道。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-btn next" type="button" data-carousel-next aria-label="下一张">›</button>
+        <div class="carousel-dots" data-carousel-dots aria-label="轮播分页"></div>
+      </div>
+
+      <h3 style="margin-top: 28px;">产品UI设计</h3>
+      <div class="gallery-carousel ui-carousel" data-carousel>
+        <button class="carousel-btn prev" type="button" data-carousel-prev aria-label="上一张">‹</button>
+        <div class="carousel-window">
+          <div class="gallery-track" data-carousel-track>
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">产品UI</span>
+                <img src="images/product-ui-01.png" alt="AI收费POS UI设计" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/product-ui-01.png</div>
+              </div>
+              <div class="work-body">
+                <h4>AI收费POS UI设计</h4>
+                <p>用于展示收费产品界面设计。可补充：核心流程、操作效率、产品体验优化。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">产品UI</span>
+                <img src="images/product-ui-02.png" alt="AI语音输入UI设计" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/product-ui-02.png</div>
+              </div>
+              <div class="work-body">
+                <h4>AI语音输入 UI设计</h4>
+                <p>用于展示 AI 交互入口与语音输入体验。可补充：交互逻辑、状态设计、使用便捷性。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">产品UI</span>
+                <img src="images/product-ui-03.png" alt="资管云合同履约中UI设计" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/product-ui-03.png</div>
+              </div>
+              <div class="work-body">
+                <h4>资管云合同履约中 UI设计</h4>
+                <p>用于展示资管云业务流程界面。可补充：信息结构、流程状态、业务协同价值。</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-media">
+                <span class="work-type">产品UI</span>
+                <img src="images/product-ui-04.png" alt="资管云运营数据看板暗色版" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+                <div class="image-placeholder">放入 images/product-ui-04.png</div>
+              </div>
+              <div class="work-body">
+                <h4>资管云运营数据看板暗色版</h4>
+                <p>用于展示数据看板与暗色模式设计。可补充：数据层级、视觉对比、运营分析效率。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-btn next" type="button" data-carousel-next aria-label="下一张">›</button>
+        <div class="carousel-dots" data-carousel-dots aria-label="轮播分页"></div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 16px;">
+        <div class="card">
+          <h3>主要成果展示</h3>
+          <ul>
+            <li><strong>市场活动支持：</strong>H1 跟进并协助完成 2 场重点市场活动，围绕核心伙伴赋能与 2026 伙伴大会，完成相关物料设计、传播包装和推广支持，保障活动前中后的视觉一致性与传播完整度。</li>
+            <li><strong>短视频内容推广：</strong>完成 10+ 条短视频推广内容，借助 AI 工具提升内容制作效率，并在选题、脚本、画面包装上进行创新尝试。其中 30 秒《新产品场景视频》播放量达到 1079，为后续视频内容优化提供了可参考样本。</li>
+            <li><strong>新产品推广落地：</strong>围绕灵析智报、AI 收费 POS 等新产品，通过长图、场景视频、官网页面、宣传物料等多种形式完成产品落地推广。以新品曝光、市场声量提升和商机转化承接为核心目标，完成了从产品包装、品牌传播、渠道触达到线索承接的整套推广动作。</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>问题与改进方向</h3>
+          <ul>
+            <li><strong>视频内容吸引力仍需提升：</strong>目前视频平均播放量约 400+，内容在开头吸引、节奏设计、标题包装和传播钩子上还需要继续打磨，后续需围绕用户关注点优化选题和表达方式，提升播放量及商机转化率。</li>
+            <li><strong>线下活动触达不足：</strong>H1 线下落地活动仅 2 场，整体线索获取仍主要依赖线上内容推广。后续需要增加线下活动、客户共创、行业交流等触达方式，提升线索池质量和线索转化效率。</li>
+            <li><strong>新产品资料承接不够完善：</strong>新产品发布后，配套解决方案、产品说明、销售话术和客户沟通资料仍不够完整，导致销售在客户咨询场景下缺少可直接调用的材料。后续需建立新品发布后的标准化资料包，增强销售支持和转化承接能力。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="next-plan">
+      <div class="section-head">
+        <div>
+          <h2>三、下半年工作计划</h2>
+          <p class="section-note">围绕“提升线索质量、视觉驱动增长、完善标准化资产、支撑重点业务目标”制定下半年推进计划。</p>
+        </div>
+        <span class="tag">目标与行动</span>
+      </div>
+
+      <div class="plan-list">
+        <div class="plan-item">
+          <span class="number">1</span>
+          <div>
+            <h3>提升市场推广线索质量</h3>
+            <ul>
+              <li>下半年围绕物博会、客户活动等重点场景开展线下市场活动，扩大线下线索与商机池。</li>
+              <li>优化推广渠道组合，将资源重点投入高质量线索来源，提升线索质量和有效商机产出。</li>
+              <li>加强线下活动后的线索承接与销售跟进协同，推动线索从获取到转化形成完整闭环。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <span class="number">2</span>
+          <div>
+            <h3>视觉驱动增长</h3>
+            <ul>
+              <li>以视觉设计赋能品牌传播、销售转化与产品包装，用高质量视觉物料提升用户感知与转化效率。</li>
+              <li>围绕重点产品形成“卖点说明 + 应用场景 + 客户案例 + 转化入口”的内容组合。</li>
+              <li>针对不同业态客户属性输出差异化推广材料，加强内容发布后的数据追踪，持续优化选题和表达方式。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <span class="number">3</span>
+          <div>
+            <h3>完善标准化内容资产</h3>
+            <ul>
+              <li>持续完善产品资料、案例模板、活动物料、销售支持工具包。</li>
+              <li>围绕新品推广、客户沟通和销售转化场景，补齐产品说明、解决方案和标准化传播资料。</li>
+              <li>沉淀可复制的 AI skill 和内容生产流程，降低后续内容生产成本，提升交付效率。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan-item">
+          <span class="number">4</span>
+          <div>
+            <h3>支撑重点业务目标</h3>
+            <ul>
+              <li>围绕下半年重点项目、重点客户和重点区域制定专项推广计划。</li>
+              <li>配合销售与产品节点完成资料、活动、案例、方案等支持，提升市场内容对业务推进的支撑力度。</li>
+              <li>根据重点业务推进节奏，持续优化推广内容、活动物料和客户沟通资料。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 24px;">下半年计划排期</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>时间</th>
+            <th>重点任务</th>
+            <th>交付成果</th>
+            <th>衡量指标</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>7-8 月</td>
+            <td>AI 场景视频推广、产品推广包、客户案例内容输出，并保持每周 2 条内容推广节奏</td>
+            <td>AI 场景视频、产品推广包、客户案例、渠道推广内容</td>
+            <td>内容完成数量、发布数量、线索数量、播放量等</td>
+          </tr>
+          <tr>
+            <td>9-11 月</td>
+            <td>广州物博会、走进标杆、一桌饭圈层活动等线下市场活动支持</td>
+            <td>行业解决方案、活动物料、专题内容</td>
+            <td>活动线索、客户咨询、商机推进数</td>
+          </tr>
+          <tr>
+            <td>12 月</td>
+            <td>年底冲刺物料设计、年终总结、经营启动会等重点节点支持</td>
+            <td>活动物料、年度内容资产库、明年推广建议</td>
+            <td>线索数量、商机数量、重点节点支持效果等</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      半年度工作总结框架，可根据实际数据、案例和部门要求继续完善。
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector("[data-carousel-track]");
+      const slides = Array.from(track.children);
+      const prevBtn = carousel.querySelector("[data-carousel-prev]");
+      const nextBtn = carousel.querySelector("[data-carousel-next]");
+      const dotsWrap = carousel.querySelector("[data-carousel-dots]");
+      let currentIndex = 0;
+      let timerId = null;
+      let maxIndex = 0;
+
+      function getVisibleCount() {
+        return window.matchMedia("(max-width: 860px)").matches ? 1 : 3;
+      }
+
+      function getStepSize() {
+        const slide = slides[0];
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return slide.getBoundingClientRect().width + gap;
+      }
+
+      function renderDots() {
+        dotsWrap.innerHTML = "";
+        for (let i = 0; i <= maxIndex; i += 1) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "carousel-dot";
+          dot.setAttribute("aria-label", `切换到第 ${i + 1} 组作品`);
+          dot.addEventListener("click", () => {
+            goTo(i);
+            restart();
+          });
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function update() {
+        const visibleCount = getVisibleCount();
+        maxIndex = Math.max(slides.length - visibleCount, 0);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        track.style.transform = `translateX(${-currentIndex * getStepSize()}px)`;
+        Array.from(dotsWrap.children).forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentIndex);
+        });
+      }
+
+      function goTo(index) {
+        currentIndex = index > maxIndex ? 0 : index < 0 ? maxIndex : index;
+        update();
+      }
+
+      function next() {
+        goTo(currentIndex + 1);
+      }
+
+      function start() {
+        stop();
+        timerId = window.setInterval(next, 3200);
+      }
+
+      function stop() {
+        if (timerId) {
+          window.clearInterval(timerId);
+          timerId = null;
+        }
+      }
+
+      function restart() {
+        stop();
+        start();
+      }
+
+      function resetLayout() {
+        const previousMax = maxIndex;
+        maxIndex = Math.max(slides.length - getVisibleCount(), 0);
+        if (previousMax !== maxIndex) {
+          renderDots();
+        }
+        update();
+      }
+
+      prevBtn.addEventListener("click", () => {
+        goTo(currentIndex - 1);
+        restart();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        next();
+        restart();
+      });
+
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+      carousel.addEventListener("focusin", stop);
+      carousel.addEventListener("focusout", start);
+      window.addEventListener("resize", resetLayout);
+
+      resetLayout();
+      start();
+    });
+  </script>
+</body>
+</html>
