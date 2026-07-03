@@ -572,6 +572,117 @@
       border-radius: 0 var(--radius) var(--radius) 0;
     }
 
+    .review-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .review-card {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+        rgba(8, 17, 12, 0.78);
+      backdrop-filter: blur(12px);
+    }
+
+    .review-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .review-card-head h3 {
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .review-label {
+      flex: 0 0 auto;
+      padding: 5px 9px;
+      border: 1px solid rgba(57, 255, 136, 0.24);
+      border-radius: 999px;
+      color: var(--primary);
+      background: rgba(57, 255, 136, 0.1);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .review-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .review-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      background: rgba(5, 14, 9, 0.46);
+    }
+
+    .review-index {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(57, 255, 136, 0.14);
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .review-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .review-title-row h4 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .review-chip {
+      flex: 0 0 auto;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(76, 201, 240, 0.12);
+      color: #86e7ff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .review-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .review-card.issue .review-index {
+      background: rgba(255, 143, 160, 0.14);
+      color: #ff8fa0;
+    }
+
+    .review-card.issue .review-chip {
+      background: rgba(255, 209, 102, 0.14);
+      color: var(--orange);
+    }
+
     .gallery-guide {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -797,8 +908,18 @@
       .rate-rings,
       .grid-2,
       .grid-3,
+      .review-layout,
       .gallery-guide {
         grid-template-columns: 1fr;
+      }
+
+      .review-title-row {
+        display: block;
+      }
+
+      .review-chip {
+        display: inline-flex;
+        margin-top: 8px;
       }
 
       .rate-card {
@@ -1444,23 +1565,83 @@
         <div class="carousel-dots" data-carousel-dots aria-label="轮播分页"></div>
       </div>
 
-      <div class="grid-2" style="margin-top: 16px;">
-        <div class="card">
-          <h3>主要成果展示</h3>
-          <ul>
-            <li><strong>市场活动支持：</strong>H1 跟进并协助完成 2 场重点市场活动，围绕核心伙伴赋能与 2026 伙伴大会，完成相关物料设计、传播包装和推广支持，保障活动前中后的视觉一致性与传播完整度。</li>
-            <li><strong>短视频内容推广：</strong>完成 10+ 条短视频推广内容，借助 AI 工具提升内容制作效率，并在选题、脚本、画面包装上进行创新尝试。其中 30 秒《新产品场景视频》播放量达到 1079，为后续视频内容优化提供了可参考样本。</li>
-            <li><strong>新产品推广落地：</strong>围绕灵析智报、AI 收费 POS 等新产品，通过长图、场景视频、官网页面、宣传物料等多种形式完成产品落地推广。以新品曝光、市场声量提升和商机转化承接为核心目标，完成了从产品包装、品牌传播、渠道触达到线索承接的整套推广动作。</li>
-          </ul>
+      <div class="review-layout">
+        <div class="review-card">
+          <div class="review-card-head">
+            <h3>主要成果展示</h3>
+            <span class="review-label">成果沉淀</span>
+          </div>
+          <div class="review-stack">
+            <article class="review-item">
+              <span class="review-index">01</span>
+              <div>
+                <div class="review-title-row">
+                  <h4>市场活动支持</h4>
+                  <span class="review-chip">2 场重点活动</span>
+                </div>
+                <p>H1 跟进并协助完成核心伙伴赋能与 2026 伙伴大会相关支持，完成物料设计、传播包装和推广配合，保障活动前中后的视觉一致性与传播完整度。</p>
+              </div>
+            </article>
+            <article class="review-item">
+              <span class="review-index">02</span>
+              <div>
+                <div class="review-title-row">
+                  <h4>短视频内容推广</h4>
+                  <span class="review-chip">10+ 条内容</span>
+                </div>
+                <p>借助 AI 工具提升制作效率，并在选题、脚本、画面包装上进行创新尝试。其中 30 秒《新产品场景视频》播放量达到 1079，为后续视频优化提供参考样本。</p>
+              </div>
+            </article>
+            <article class="review-item">
+              <span class="review-index">03</span>
+              <div>
+                <div class="review-title-row">
+                  <h4>新产品推广落地</h4>
+                  <span class="review-chip">产品声量提升</span>
+                </div>
+                <p>围绕灵析智报、AI 收费 POS 等新产品，通过长图、场景视频、官网页面、宣传物料等形式推进落地，完成从产品包装、品牌传播、渠道触达到线索承接的整套推广动作。</p>
+              </div>
+            </article>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>问题与改进方向</h3>
-          <ul>
-            <li><strong>视频内容吸引力仍需提升：</strong>目前视频平均播放量约 400+，内容在开头吸引、节奏设计、标题包装和传播钩子上还需要继续打磨，后续需围绕用户关注点优化选题和表达方式，提升播放量及商机转化率。</li>
-            <li><strong>线下活动触达不足：</strong>H1 线下落地活动仅 2 场，整体线索获取仍主要依赖线上内容推广。后续需要增加线下活动、客户共创、行业交流等触达方式，提升线索池质量和线索转化效率。</li>
-            <li><strong>新产品资料承接不够完善：</strong>新产品发布后，配套解决方案、产品说明、销售话术和客户沟通资料仍不够完整，导致销售在客户咨询场景下缺少可直接调用的材料。后续需建立新品发布后的标准化资料包，增强销售支持和转化承接能力。</li>
-          </ul>
+        <div class="review-card issue">
+          <div class="review-card-head">
+            <h3>问题与改进方向</h3>
+            <span class="review-label">优化重点</span>
+          </div>
+          <div class="review-stack">
+            <article class="review-item">
+              <span class="review-index">01</span>
+              <div>
+                <div class="review-title-row">
+                  <h4>视频内容吸引力不足</h4>
+                  <span class="review-chip">提升播放与转化</span>
+                </div>
+                <p>目前视频平均播放量约 400+，后续需继续打磨开头吸引、节奏设计、标题包装和传播钩子，围绕用户关注点优化选题表达，提升播放量及商机转化率。</p>
+              </div>
+            </article>
+            <article class="review-item">
+              <span class="review-index">02</span>
+              <div>
+                <div class="review-title-row">
+                  <h4>线下活动触达不足</h4>
+                  <span class="review-chip">扩大线索池</span>
+                </div>
+                <p>H1 线下落地活动仅 2 场，整体线索获取仍主要依赖线上内容推广。后续需要增加线下活动、客户共创和行业交流，提升线索池质量与转化效率。</p>
+              </div>
+            </article>
+            <article class="review-item">
+              <span class="review-index">03</span>
+              <div>
+                <div class="review-title-row">
+                  <h4>新产品资料承接不足</h4>
+                  <span class="review-chip">补齐资料包</span>
+                </div>
+                <p>新产品发布后，配套解决方案、产品说明、销售话术和客户沟通资料仍不够完整。后续需建立新品发布后的标准化资料包，增强销售支持和转化承接能力。</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
