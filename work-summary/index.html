@@ -359,6 +359,12 @@
       font-size: 14px;
     }
 
+    .ring-group-title {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: 18px;
+    }
+
     .rate-rings {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -915,20 +921,9 @@
           <strong>34.56 万</strong>
           <span>新签金额</span>
         </div>
-        <div class="metric">
-          <strong>60.1%</strong>
-          <span>线索同比增长</span>
-        </div>
-        <div class="metric">
-          <strong>11.9%</strong>
-          <span>商机金额同比增长</span>
-        </div>
-        <div class="metric">
-          <strong class="negative">-22%</strong>
-          <span>新签金额同比增长</span>
-        </div>
       </div>
 
+      <h3 class="ring-group-title">目标达成率</h3>
       <div class="rate-rings" aria-label="目标达成率">
         <div class="rate-card">
           <div class="rate-ring" style="--percent: 46.6%; --ring-color: #39ff88;">
@@ -959,6 +954,37 @@
         </div>
       </div>
 
+
+      <h3 class="ring-group-title">同比增长</h3>
+      <div class="rate-rings" aria-label="同比增长">
+        <div class="rate-card">
+          <div class="rate-ring" style="--percent: 60.1%; --ring-color: #39ff88;">
+            <strong>60.1%</strong>
+          </div>
+          <div class="rate-copy">
+            <span>线索同比增长</span>
+            <p>相比 2025 年 H1，线索获取规模实现明显增长，反映渠道触达与内容获客能力提升。</p>
+          </div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-ring" style="--percent: 11.9%; --ring-color: #4cc9f0;">
+            <strong>11.9%</strong>
+          </div>
+          <div class="rate-copy">
+            <span>商机金额同比增长</span>
+            <p>商机金额较去年同期保持增长，后续需继续提升高价值商机占比和推进效率。</p>
+          </div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-ring" style="--percent: 22%; --ring-color: #ff8fa0;">
+            <strong>-22%</strong>
+          </div>
+          <div class="rate-copy">
+            <span>新签金额同比增长</span>
+            <p>新签金额较去年同期下降，后续需加强线索筛选、销售资料承接和重点商机转化。</p>
+          </div>
+        </div>
+      </div>
       <div class="grid-2">
         <div class="card">
           <h3>线索来源分布</h3>
