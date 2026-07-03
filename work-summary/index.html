@@ -418,6 +418,55 @@
       line-height: 1.55;
     }
 
+    .achievement-panel {
+      margin: 0 0 24px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(57, 255, 136, 0.1), rgba(76, 201, 240, 0.055)),
+        rgba(5, 14, 9, 0.66);
+      backdrop-filter: blur(14px);
+    }
+
+    .achievement-panel h3 {
+      margin-bottom: 14px;
+    }
+
+    .achievement-table {
+      min-width: 860px;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    .achievement-table th,
+    .achievement-table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .achievement-table .group-main {
+      background: rgba(57, 255, 136, 0.16);
+      color: var(--primary);
+    }
+
+    .achievement-table .group-rate {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--ink);
+    }
+
+    .achievement-table .group-yoy {
+      background: rgba(76, 201, 240, 0.16);
+      color: #86e7ff;
+    }
+
+    .achievement-table .negative {
+      color: #ff8fa0;
+      font-weight: 800;
+    }
+
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -939,6 +988,46 @@
             <span>新签金额达成率</span>
             <p>体现线索到签约的最终转化结果，后续需加强市场内容与销售成交资料的承接。</p>
           </div>
+        </div>
+      </div>
+
+      <div class="achievement-panel">
+        <h3>H1目标达成与同比对比</h3>
+        <div class="table-scroll">
+          <table class="achievement-table">
+            <thead>
+              <tr>
+                <th class="group-main" colspan="4">H1目标达成情况</th>
+                <th class="group-rate" rowspan="2">线索达成率</th>
+                <th class="group-rate" rowspan="2">商机金额达成率</th>
+                <th class="group-rate" rowspan="2">新签金额达成率</th>
+                <th class="group-yoy" colspan="3">对比2025年H1数据</th>
+              </tr>
+              <tr>
+                <th class="group-main">H1线索</th>
+                <th class="group-main">H1商机</th>
+                <th class="group-main">H1商机金额(万)</th>
+                <th class="group-main">H1新签金额(万)</th>
+                <th class="group-yoy">线索同比增长</th>
+                <th class="group-yoy">商机金额同比增长</th>
+                <th class="group-yoy">新签金额同比增长</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>466</td>
+                <td>132</td>
+                <td>693.86</td>
+                <td>34.56</td>
+                <td>46.6%</td>
+                <td>40.8%</td>
+                <td>17.3%</td>
+                <td>60.1%</td>
+                <td>11.9%</td>
+                <td class="negative">-22.0%</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
