@@ -13,6 +13,7 @@
         <strong>平面 & UI</strong>
       </a>
       <nav class="nav-links" aria-label="作品集导航">
+        <a href="#featured">精选</a>
         <a href="#ui">UI</a>
         <a href="#graphic">平面</a>
         <a href="#video">短视频</a>
@@ -23,19 +24,17 @@
       <section class="hero section-band">
         <div class="hero-copy">
           <p class="eyebrow">Graphic & UI Design Portfolio</p>
-          <h1>平面 & UI 设计作品集</h1>
+          <h1>用清晰层级做有记忆点的视觉表达</h1>
           <p class="hero-text">
-            聚焦品牌视觉、运营传播、信息排版与产品界面设计，展示从视觉表达、信息层级到多场景延展的综合设计能力。
+            覆盖品牌视觉、运营传播、信息排版、产品界面与短视频封面，强调从视觉冲击到实际落地的完整设计能力。
           </p>
-          <div class="hero-tags" aria-label="设计方向">
-            <span>视觉设计</span>
-            <span>UI界面</span>
-            <span>活动KV</span>
-            <span>长图排版</span>
+          <div class="hero-actions">
+            <a href="#featured">查看精选作品</a>
+            <a href="#ui">浏览 UI 案例</a>
           </div>
         </div>
         <div class="hero-gallery" aria-label="精选作品预览">
-          <button class="hero-shot large" data-modal-src="./assets/portfolio/14-graphic.jpg" data-modal-title="主视觉 KV">
+          <button class="hero-shot hero-shot-main" data-modal-src="./assets/portfolio/14-graphic.jpg" data-modal-title="主视觉 KV">
             <img src="./assets/portfolio/14-graphic.jpg" alt="主视觉 KV" />
           </button>
           <button class="hero-shot" data-modal-src="./assets/portfolio/10-ui.jpg" data-modal-title="数据看板界面">
@@ -56,12 +55,12 @@
           <article>
             <span class="mark teal"></span>
             <h3>平面视觉</h3>
-            <p>Banner、KV、海报、展会物料，强调主题表达和传播识别。</p>
+            <p>Banner、KV、海报、展会物料，强化主题表达和传播识别。</p>
           </article>
           <article>
             <span class="mark coral"></span>
-            <h3>UI设计</h3>
-            <p>官网、后台、数据看板，关注信息层级、模块秩序和阅读效率。</p>
+            <h3>UI 设计</h3>
+            <p>官网、产品页面、后台看板，关注信息层级、模块秩序和阅读效率。</p>
           </article>
           <article>
             <span class="mark green"></span>
@@ -76,37 +75,66 @@
         </div>
       </section>
 
-      <section class="work section-band">
+      <section class="featured section-band" id="featured">
         <div class="section-heading">
-          <p class="eyebrow">Selected Works</p>
-          <h2>精选作品</h2>
-          <div class="filters" aria-label="作品分类筛选">
-            <button class="filter is-active" data-filter="all">全部</button>
-            <button class="filter" data-filter="ui">UI</button>
-            <button class="filter" data-filter="graphic">平面</button>
-            <button class="filter" data-filter="video">短视频</button>
+          <div>
+            <p class="eyebrow">Selected Works</p>
+            <h2>第一眼先看到最强作品</h2>
           </div>
+          <p class="section-note">用大图和节奏建立记忆点，再进入分类细看。</p>
         </div>
+        <div class="featured-grid" aria-live="polite"></div>
+      </section>
 
-        <div class="work-grid" aria-live="polite"></div>
+      <section class="ui-section section-band" id="ui">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">UI Design</p>
+            <h2>UI 案例流</h2>
+          </div>
+          <p class="section-note">官网 Banner、官网页面、产品页面、数据看板按求职阅读顺序展开。</p>
+        </div>
+        <div class="ui-showcase" aria-live="polite"></div>
+      </section>
+
+      <section class="graphic-section section-band" id="graphic">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Graphic Design</p>
+            <h2>平面杂志式作品墙</h2>
+          </div>
+          <p class="section-note">把同类作品放在一起，通过大中小图形成视觉节奏。</p>
+        </div>
+        <div class="graphic-showcase" aria-live="polite"></div>
+      </section>
+
+      <section class="video-section section-band" id="video">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Short Video</p>
+            <h2>短视频封面</h2>
+          </div>
+          <p class="section-note">封面作为入口，点击后直接播放对应视频。</p>
+        </div>
+        <div class="video-grid" aria-live="polite"></div>
       </section>
 
       <section class="closing section-band">
         <div>
           <p class="eyebrow">Design Value</p>
-          <h2>能够覆盖从视觉传播到界面设计的完整工作链路</h2>
+          <h2>从视觉传播到界面设计，形成完整的设计落地链路</h2>
         </div>
         <ul class="value-list">
           <li>版式与色彩控制</li>
           <li>品牌视觉延展</li>
-          <li>UI信息层级</li>
+          <li>UI 信息层级</li>
           <li>运营物料落地</li>
         </ul>
       </section>
     </main>
 
-    <div class="modal" aria-hidden="true" role="dialog" aria-label="作品大图">
-      <button class="modal-close" aria-label="关闭大图">×</button>
+    <div class="modal" aria-hidden="true" role="dialog" aria-label="作品预览">
+      <button class="modal-close" aria-label="关闭预览">×</button>
       <figure>
         <img src="" alt="" />
         <video controls playsinline preload="metadata"></video>
