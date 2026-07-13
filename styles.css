@@ -79,8 +79,7 @@ img {
   gap: 8px;
 }
 
-.nav-links a,
-.hero-actions a {
+.nav-links a {
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--ink);
@@ -91,8 +90,7 @@ img {
   transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.nav-links a:hover,
-.hero-actions a:hover {
+.nav-links a:hover {
   border-color: var(--teal);
   transform: translateY(-1px);
 }
@@ -103,31 +101,16 @@ img {
 
 .hero {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(360px, 0.78fr) minmax(460px, 1.08fr);
-  gap: clamp(28px, 5vw, 72px);
-  align-items: center;
-  min-height: calc(100vh - 72px);
-  color: #fff;
+  min-height: 0;
+  padding-top: clamp(28px, 4vw, 52px);
+  padding-bottom: clamp(44px, 6vw, 78px);
+  color: var(--ink);
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(10, 15, 24, 0.94) 0%, rgba(10, 15, 24, 0.82) 46%, rgba(10, 15, 24, 0.35) 100%),
-    url("./assets/portfolio/14-graphic.jpg") center / cover no-repeat;
+  background: #050806;
 }
 
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 34%;
-  background: linear-gradient(180deg, rgba(10, 15, 24, 0) 0%, rgba(10, 15, 24, 0.86) 100%);
-  pointer-events: none;
-}
-
-.hero-copy,
-.hero-gallery {
-  position: relative;
-  z-index: 2;
+  content: none;
 }
 
 .eyebrow {
@@ -168,41 +151,7 @@ h3 {
   letter-spacing: 0;
 }
 
-.hero-text {
-  max-width: 610px;
-  color: #d9e0e8;
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.hero-actions a {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-.hero-actions a:first-child {
-  border-color: #fff;
-  background: #fff;
-  color: var(--ink);
-}
-
-.hero-gallery {
-  display: grid;
-  grid-template-columns: 1.08fr 0.84fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  align-items: stretch;
-}
-
-.hero-shot,
+.hero-banner,
 .work-media {
   position: relative;
   display: block;
@@ -216,25 +165,23 @@ h3 {
   overflow: hidden;
 }
 
-.hero-shot {
-  min-height: 218px;
-  outline: 1px solid rgba(255, 255, 255, 0.32);
+.hero-banner {
+  max-width: min(1280px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  outline: 1px solid rgba(255, 255, 255, 0.12);
   outline-offset: -1px;
 }
 
-.hero-shot-main {
-  grid-row: span 2;
-  min-height: 472px;
-}
-
-.hero-shot img,
+.hero-banner img,
 .work-media img {
   height: 100%;
   object-fit: cover;
   transition: transform 220ms ease;
 }
 
-.hero-shot:hover img,
+.hero-banner:hover img,
 .work-media:hover img {
   transform: scale(1.025);
 }
@@ -310,16 +257,8 @@ h3 {
   background: var(--amber);
 }
 
-.featured,
 .graphic-section {
   background: #fff;
-}
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  gap: 20px;
 }
 
 .feature-card,
@@ -334,27 +273,10 @@ h3 {
   overflow: hidden;
 }
 
-.feature-card.is-lead {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.feature-card.is-wide {
-  grid-column: span 2;
-}
-
 .work-media {
   aspect-ratio: var(--media-ratio, 16 / 9);
   border-radius: 0;
   box-shadow: none;
-}
-
-.feature-card.is-lead .work-media {
-  min-height: 420px;
-}
-
-.feature-card.is-wide .work-media {
-  min-height: 236px;
 }
 
 .work-media.fit-contain img {
@@ -491,6 +413,16 @@ h3 {
   gap: 18px;
 }
 
+.kv-grid .kv-cosmic {
+  grid-column: 5 / span 2;
+  grid-row: 2;
+}
+
+.kv-grid .kv-main-kv2 {
+  grid-column: 5 / span 2;
+  grid-row: 3;
+}
+
 .graphic-card {
   grid-column: span 2;
 }
@@ -517,12 +449,45 @@ h3 {
   min-height: 420px;
 }
 
+.kv-grid .graphic-card.kv-cosmic {
+  grid-column: 5 / span 2;
+  grid-row: 2;
+}
+
+.kv-grid .graphic-card.kv-main-kv2 {
+  grid-column: 5 / span 2;
+  grid-row: 3;
+}
+
 .graphic-card.is-long {
   grid-column: span 3;
 }
 
 .graphic-card.is-long .work-media {
   aspect-ratio: 16 / 9;
+}
+
+.event-card,
+.event-card.is-large,
+.event-card.is-wide,
+.event-card.is-tall {
+  grid-column: span 2;
+  grid-row: auto;
+}
+
+.event-card .work-media,
+.event-card.is-large .work-media,
+.event-card.is-wide .work-media,
+.event-card.is-tall .work-media {
+  min-height: 0;
+}
+
+.event-media {
+  aspect-ratio: 16 / 9;
+}
+
+.event-media img {
+  object-fit: cover;
 }
 
 .carousel {
@@ -565,9 +530,22 @@ h3 {
   flex: 1;
 }
 
-.operation-media,
+.operation-media {
+  aspect-ratio: 9 / 16;
+}
+
 .video-media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 4;
+}
+
+.operation-media img,
+.video-media img {
+  object-fit: cover;
+}
+
+.operation-media.long-preview img,
+.operation-media.long-preview-auto img {
+  object-position: top center;
 }
 
 .carousel-nav {
@@ -659,7 +637,7 @@ h3 {
 }
 
 .video-media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 4;
 }
 
 .video-section .carousel-nav {
@@ -806,15 +784,10 @@ h3 {
 
 @media (max-width: 1080px) {
   .hero {
-    grid-template-columns: 1fr;
+    padding-top: 24px;
   }
 
-  .hero-gallery {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .skill-grid,
-  .featured-grid {
+  .skill-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -881,14 +854,10 @@ h3 {
 
   .hero {
     min-height: 0;
-    background:
-      linear-gradient(180deg, rgba(10, 15, 24, 0.95) 0%, rgba(10, 15, 24, 0.82) 58%, rgba(10, 15, 24, 0.98) 100%),
-      url("./assets/portfolio/14-graphic.jpg") center / cover no-repeat;
+    background: #050806;
   }
 
-  .hero-gallery,
   .skill-grid,
-  .featured-grid,
   .ui-banner-grid,
   .ui-product-grid,
   .ui-dashboard-grid,
@@ -918,13 +887,6 @@ h3 {
     font-size: 30px;
   }
 
-  .hero-shot-main,
-  .hero-shot {
-    min-height: 238px;
-  }
-
-  .feature-card.is-lead,
-  .feature-card.is-wide,
   .ui-banner-grid .case-card:first-child,
   .graphic-card,
   .graphic-card.is-large,
@@ -933,8 +895,6 @@ h3 {
     grid-column: span 1;
   }
 
-  .feature-card.is-lead .work-media,
-  .feature-card.is-wide .work-media,
   .ui-banner-grid .case-card:first-child .work-media,
   .ui-page-grid .work-media,
   .ui-dashboard-grid .work-media,

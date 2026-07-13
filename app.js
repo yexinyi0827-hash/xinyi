@@ -1,4 +1,3 @@
-const featuredGrid = document.querySelector(".featured-grid");
 const uiShowcase = document.querySelector(".ui-showcase");
 const graphicShowcase = document.querySelector(".graphic-showcase");
 const videoGrid = document.querySelector(".video-grid");
@@ -37,34 +36,13 @@ function projectMeta(item, label = item.subtype) {
 function isLongGraphic(item) {
   return (
     item.original.includes("长图") ||
+    item.original.includes("闀垮浘") ||
     item.src.includes("35-graphic") ||
     item.src.includes("36-graphic") ||
     item.src.includes("37-graphic") ||
     item.src.includes("38-graphic") ||
     item.src.includes("39-graphic")
   );
-}
-
-function renderFeatured(items) {
-  const featured = [
-    items.find((item) => item.src.includes("14-graphic")),
-    items.find((item) => item.src.includes("10-ui")),
-    items.find((item) => item.src.includes("25-graphic")),
-    items.find((item) => item.src.includes("01-ui")),
-    items.find((item) => item.src.includes("40-video")),
-  ].filter(Boolean);
-
-  featuredGrid.innerHTML = featured
-    .map((item, index) => {
-      const sizeClass = index === 0 ? "is-lead" : index === 1 ? "is-wide" : "";
-      return `
-        <article class="feature-card ${sizeClass}">
-          ${projectButton(item, "work-media", index === 0 ? "media-hero" : "")}
-          ${projectMeta(item)}
-        </article>
-      `;
-    })
-    .join("");
 }
 
 function renderUi(uiItems) {
@@ -133,11 +111,19 @@ function renderCarousel(items, options = {}) {
   `;
 }
 
+function graphicCardClass(item, index, layout) {
+  const rhythm = index === 0 ? "is-large" : index % 5 === 2 ? "is-tall" : index % 6 === 4 ? "is-wide" : "";
+  const longClass = isLongGraphic(item) ? " is-long" : "";
+  const kvClass = item.src.includes("13-graphic") ? " kv-cosmic" : item.src.includes("14-graphic") ? " kv-main-kv2" : "";
+  const eventClass = layout.includes("event-grid") ? " event-card" : "";
+  return `${rhythm}${longClass}${kvClass}${eventClass}`;
+}
+
 function renderGraphic(graphicItems) {
   const groups = [
-    { title: "Banner / KV", note: "横向视觉优先放大，形成进入平面区的第一波冲击。", items: graphicItems.slice(0, 5), layout: "magazine-grid kv-grid" },
-    { title: "印刷与展会", note: "海报、折页、展台和邀请函用错落图块体现物料丰富度。", items: graphicItems.slice(5, 18), layout: "magazine-grid event-grid" },
-    { title: "运营与长图", note: "运营海报与长图页面改为横向轮播，长图保留顶部 16:9 预览。", items: graphicItems.slice(18), layout: "carousel" },
+    { title: "Banner / KV", note: "官网主 KV2 已调整到 cosmic 下方，形成更清楚的浏览顺序。", items: graphicItems.slice(0, 5), layout: "magazine-grid kv-grid" },
+    { title: "印刷与展会", note: "海报、折页、展台和邀请函统一以 16:9 尺寸展示。", items: graphicItems.slice(5, 18), layout: "magazine-grid event-grid" },
+    { title: "运营与长图", note: "运营海报与长图页面以 9:16 轮播展示。", items: graphicItems.slice(18), layout: "carousel" },
   ];
 
   graphicShowcase.innerHTML = groups
@@ -152,17 +138,17 @@ function renderGraphic(graphicItems) {
             ? renderCarousel(group.items, {
                 id: "operation-carousel",
                 slideClass: "graphic-card operation-card",
-                mediaClass: "work-media operation-media",
+                mediaClass: "work-media operation-media fixed-media",
                 longPreview: isLongGraphic,
               })
             : `<div class="${group.layout}">
                 ${group.items
                   .map((item, index) => {
-                    const longClass = isLongGraphic(item);
-                    const rhythm = index === 0 ? "is-large" : index % 5 === 2 ? "is-tall" : index % 6 === 4 ? "is-wide" : "";
+                    const fixedClass = group.layout.includes("event-grid") ? " event-media fixed-media" : "";
+                    const longClass = isLongGraphic(item) ? "long-preview" : "";
                     return `
-                      <article class="graphic-card ${rhythm}${longClass ? " is-long" : ""}">
-                        ${projectButton(item, "work-media", longClass ? "long-preview" : "")}
+                      <article class="graphic-card ${graphicCardClass(item, index, group.layout)}">
+                        ${projectButton(item, `work-media${fixedClass}`, longClass)}
                         ${projectMeta(item)}
                       </article>
                     `;
@@ -179,19 +165,20 @@ function renderVideos(videoItems) {
   videoGrid.innerHTML = renderCarousel(videoItems, {
     id: "video-carousel",
     slideClass: "video-card",
-    mediaClass: "work-media video-media",
+    mediaClass: "work-media video-media fixed-media",
   });
 }
 
 function renderProjects() {
   const items = window.portfolioItems || [];
-  renderFeatured(items);
   renderUi(items.filter((item) => item.category === "ui"));
   renderGraphic(items.filter((item) => item.category === "graphic"));
   renderVideos(items.filter((item) => item.category === "video"));
 }
 
 function applyAdaptiveMedia(media) {
+  if (media.classList.contains("fixed-media")) return;
+
   const image = media.querySelector("img");
   if (!image || !image.naturalWidth || !image.naturalHeight) return;
 
