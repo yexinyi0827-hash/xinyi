@@ -693,6 +693,74 @@
       box-shadow: 0 0 28px rgba(57, 255, 136, 0.35);
     }
 
+    .video-carousel .work-card[data-video-src] {
+      cursor: pointer;
+    }
+
+    .video-carousel .work-card[data-video-src]:hover .play-mark {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: rgba(57, 255, 136, 0.96);
+    }
+
+    .video-player-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(10px);
+    }
+
+    .video-player-modal.is-open {
+      display: flex;
+    }
+
+    .video-player-panel {
+      position: relative;
+      width: min(1080px, 94vw);
+      max-height: 88vh;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #050807;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .video-player-panel video {
+      width: 100%;
+      max-height: 78vh;
+      display: block;
+      background: #000;
+    }
+
+    .video-player-title {
+      margin: 0;
+      padding: 14px 18px;
+      color: var(--ink);
+      font-size: 15px;
+      border-top: 1px solid var(--line);
+      background: rgba(7, 16, 11, 0.96);
+    }
+
+    .video-player-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.58);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
     .carousel-btn {
       position: absolute;
       top: 42%;
@@ -1269,7 +1337,7 @@
         <button class="carousel-btn prev" type="button" data-carousel-prev aria-label="上一张">‹</button>
         <div class="carousel-window">
           <div class="gallery-track" data-carousel-track>
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/guozi-digital.mp4" data-video-title="4??????????" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1282,7 +1350,7 @@
               </div>
             </article>
 
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/guozi-digital.mp4" data-video-title="??????? ?????" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1295,7 +1363,7 @@
               </div>
             </article>
 
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/lingxi-zhidao.mp4" data-video-title="????????" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1308,7 +1376,7 @@
               </div>
             </article>
 
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/lingxi-zhidao.mp4" data-video-title="???? 01" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1321,7 +1389,7 @@
               </div>
             </article>
 
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/lingxi-zhidao.mp4" data-video-title="???? 02" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1334,7 +1402,7 @@
               </div>
             </article>
 
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/ai-jiaofei.mp4" data-video-title="AI?????" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1347,7 +1415,7 @@
               </div>
             </article>
 
-            <article class="work-card">
+            <article class="work-card" data-video-src="assets/videos/ai-pos.mp4" data-video-title="AI??POS??" tabindex="0" role="button">
               <div class="work-media">
                 <span class="work-type">视频封面</span>
                 <span class="play-mark">▶</span>
@@ -1541,7 +1609,62 @@
     </footer>
   </main>
 
+  <div class="video-player-modal" data-video-modal aria-hidden="true">
+    <div class="video-player-panel" role="dialog" aria-modal="true" aria-label="视频播放">
+      <button class="video-player-close" type="button" data-video-close aria-label="关闭视频">×</button>
+      <video data-video-player controls playsinline preload="metadata"></video>
+      <p class="video-player-title" data-video-title></p>
+    </div>
+  </div>
+
   <script>
+    const videoModal = document.querySelector("[data-video-modal]");
+    const videoPlayer = document.querySelector("[data-video-player]");
+    const videoTitle = document.querySelector("[data-video-title]");
+    const videoClose = document.querySelector("[data-video-close]");
+
+    function openPortfolioVideo(card) {
+      const source = card.dataset.videoSrc;
+      if (!source) return;
+      videoPlayer.src = source;
+      videoTitle.textContent = card.dataset.videoTitle || "";
+      videoModal.classList.add("is-open");
+      videoModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      videoPlayer.play().catch(() => {});
+    }
+
+    function closePortfolioVideo() {
+      videoPlayer.pause();
+      videoPlayer.removeAttribute("src");
+      videoPlayer.load();
+      videoModal.classList.remove("is-open");
+      videoModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".video-carousel .work-card[data-video-src]").forEach((card) => {
+      card.addEventListener("click", () => openPortfolioVideo(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openPortfolioVideo(card);
+        }
+      });
+    });
+
+    videoClose.addEventListener("click", closePortfolioVideo);
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) {
+        closePortfolioVideo();
+      }
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && videoModal.classList.contains("is-open")) {
+        closePortfolioVideo();
+      }
+    });
+
     document.querySelectorAll("[data-carousel]").forEach((carousel) => {
       const track = carousel.querySelector("[data-carousel-track]");
       const slides = Array.from(track.children);
