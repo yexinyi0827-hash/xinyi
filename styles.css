@@ -338,6 +338,7 @@ h3 {
 }
 
 .project-media {
+  position: relative;
   aspect-ratio: var(--media-ratio, 16 / 9);
   border-radius: 0;
   box-shadow: none;
@@ -361,6 +362,28 @@ h3 {
 .project-media.long-preview img {
   object-fit: cover;
   object-position: top center;
+}
+
+.play-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(18, 166, 180, 0.92);
+  color: #fff;
+  font-size: 24px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 14px 34px rgba(18, 166, 180, 0.32);
+  pointer-events: none;
+}
+
+.has-video .project-media:hover .play-badge {
+  background: #111827;
 }
 
 .project-copy {
@@ -431,6 +454,22 @@ h3 {
   object-fit: contain;
   border-radius: 8px;
   background: #fff;
+}
+
+.modal video {
+  display: none;
+  width: min(1180px, 96vw);
+  max-height: 78vh;
+  border-radius: 8px;
+  background: #000;
+}
+
+.modal.is-video img {
+  display: none;
+}
+
+.modal.is-video video {
+  display: block;
 }
 
 .modal figcaption {

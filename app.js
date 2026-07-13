@@ -2,6 +2,7 @@ const workGrid = document.querySelector(".work-grid");
 const filters = document.querySelectorAll(".filter");
 const modal = document.querySelector(".modal");
 const modalImage = modal.querySelector("img");
+const modalVideo = modal.querySelector("video");
 const modalCaption = modal.querySelector("figcaption");
 const modalClose = modal.querySelector(".modal-close");
 
@@ -20,9 +21,10 @@ function renderProjects() {
       const id = index === 0 ? ' id="ui"' : index === window.portfolioCounts.ui ? ' id="graphic"' : index === window.portfolioCounts.ui + window.portfolioCounts.graphic ? ' id="video"' : "";
       const feature = index === 0 || index === window.portfolioCounts.ui ? " feature" : "";
       return `
-        <article class="project${feature}"${id} data-category="${escapeHtml(item.category)}">
-          <button class="project-media" data-modal-src="${escapeHtml(item.src)}" data-modal-title="${escapeHtml(item.title)}">
+        <article class="project${feature}${item.video ? " has-video" : ""}"${id} data-category="${escapeHtml(item.category)}">
+          <button class="project-media" data-modal-src="${escapeHtml(item.src)}" data-modal-title="${escapeHtml(item.title)}"${item.video ? ` data-modal-video="${escapeHtml(item.video)}"` : ""}>
             <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" />
+            ${item.video ? '<span class="play-badge">▶</span>' : ""}
           </button>
           <div class="project-copy">
             <span>${escapeHtml(item.categoryLabel)} / ${escapeHtml(item.subtype)}</span>
@@ -88,9 +90,21 @@ function bindFilters() {
   });
 }
 
-function openModal(src, title) {
-  modalImage.src = src;
-  modalImage.alt = title;
+function openModal(src, title, videoSrc = "") {
+  if (videoSrc) {
+    modal.classList.add("is-video");
+    modalVideo.src = videoSrc;
+    modalImage.src = "";
+    modalImage.alt = "";
+    modalVideo.play().catch(() => {});
+  } else {
+    modal.classList.remove("is-video");
+    modalImage.src = src;
+    modalImage.alt = title;
+    modalVideo.pause();
+    modalVideo.removeAttribute("src");
+    modalVideo.load();
+  }
   modalCaption.textContent = title;
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
@@ -99,15 +113,19 @@ function openModal(src, title) {
 
 function closeModal() {
   modal.classList.remove("is-open");
+  modal.classList.remove("is-video");
   modal.setAttribute("aria-hidden", "true");
   modalImage.src = "";
+  modalVideo.pause();
+  modalVideo.removeAttribute("src");
+  modalVideo.load();
   document.body.style.overflow = "";
 }
 
 function bindModalTriggers() {
   document.querySelectorAll("[data-modal-src]").forEach((trigger) => {
     trigger.addEventListener("click", () => {
-      openModal(trigger.dataset.modalSrc, trigger.dataset.modalTitle);
+      openModal(trigger.dataset.modalSrc, trigger.dataset.modalTitle, trigger.dataset.modalVideo || "");
     });
   });
 }

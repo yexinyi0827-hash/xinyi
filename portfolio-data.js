@@ -317,6 +317,7 @@ window.portfolioItems = [
     categoryLabel: "短视频",
     subtype: "短视频",
     src: "./assets/portfolio/40-video.jpg",
+    video: "./assets/videos/ai-jiaofei.mp4",
     original: "短视频/封面.png",
   },
   {
@@ -325,6 +326,7 @@ window.portfolioItems = [
     categoryLabel: "短视频",
     subtype: "短视频",
     src: "./assets/portfolio/41-video.jpg",
+    video: "./assets/videos/lingxi-zhidao.mp4",
     original: "短视频/灵析智报01封面.png",
   },
   {
@@ -333,6 +335,7 @@ window.portfolioItems = [
     categoryLabel: "短视频",
     subtype: "短视频",
     src: "./assets/portfolio/42-video.jpg",
+    video: "./assets/videos/lingxi-zhidao.mp4",
     original: "短视频/灵析智报02封面.png",
   },
   {
@@ -341,6 +344,7 @@ window.portfolioItems = [
     categoryLabel: "短视频",
     subtype: "短视频",
     src: "./assets/portfolio/43-video.jpg",
+    video: "./assets/videos/lingxi-zhidao.mp4",
     original: "短视频/灵析智报产品发布封面.png",
   },
 ];
